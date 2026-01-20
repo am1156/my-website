@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tamil Saiva Poetry</title>
+  <style>
+    :root{
+    /* Per-tab colours */
+    --tab-red:#fbe9e9;
+    --tab-red-border:#c62828;
+
+    --tab-green:#e8f5e9;
+    --tab-green-border:#2e7d32;
+
+    --tab-blue:#e3f2fd;
+    --tab-blue-border:#1565c0;
+
+    --tab-purple:#f3e5f5;
+    --tab-purple-border:#6a1b9a;
+
+    --tab-gold:#fff8e1;
+    --tab-gold-border:#b28704;
+    .center {
+    text-align: center;
+  }
+    .big-center {
+  font-size: 1.4em;
+  text-align: center;
+}
+    .centerText{ text-align: center; }
+      /* Page */
+      --bg:#fbf1d3;           /* cream yellow */
+      --card:#fff;
+      --text:#111;
+      --muted:#666;
+      --line:rgba(0,0,0,.10);
+
+      /* Brand + nav */
+      --accent:#7a1f1f;
+      --accent2:#b08d57;
+
+      /* Tab colours (normal/hover/active) */
+      --tabBg:#fff7e8;
+      --tabBorder:rgba(122,31,31,.22);
+      --tabHoverBg:#e7f3ff;  /* hover color for tabs */
+      --tabHoverBorder:#79aee6;
+
+      /* Search button colours (distinct from tab hover) */
+      --searchBg:#e9fff0;
+      --searchBorder:#54b87a;
+      --searchHoverBg:#d7ffe6;
+      --searchHoverBorder:#2e9b5b;
+
+      --max: 1100px;
+      --radius: 16px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:var(--bg);
+    }
+    a{color:inherit; text-decoration:none}
+
+    header{
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.90));
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:saturate(160%) blur(6px);
+    }
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:16px}
+
+    .topbar{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .brand{display:flex; gap:10px; align-items:center; min-width:240px}
+    .logo{
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      background-image: url("images/murugan4.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow:0 8px 22px rgba(0,0,0,.10);
+    }
+    .brand h1{font-size:16px; margin:0}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+
+    /* --- Dropdown nav --- */
+    .navRow{display:flex; gap:8px; justify-content:flex-end; flex-wrap:wrap}
+    .menu{position:relative}
+
+    .menu > a{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid var(--tabBorder);
+      border-radius:999px;
+      background:var(--tabBg);
+      color:#222;
+      font-size:13px;
+      transition:background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .menu > button{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid var(--tabBorder);
+      border-radius:999px;
+      background:var(--tabBg);
+      color:#222;
+      font-size:13px;
+      cursor:pointer;
+      transition:background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+.menu > button:focus{
+  outline:none;
+  box-shadow:0 0 0 4px rgba(122,31,31,.10);
+}
+/* Base style for coloured tabs */
+.menu > a[data-color],
+.menu > button[data-color]{
+  background: var(--tabBg);
+  border-color: var(--tabBorder);
+}
+
+/* RED */
+.menu > a[data-color="red"],
+.menu > button[data-color="red"]{
+  background: var(--tab-red);
+  border-color: var(--tab-red-border);
+}
+.menu > a[data-color="red"]:hover,
+.menu > button[data-color="red"]:hover{
+  background:#f6caca;
+  border-color:#b71c1c;
+}
+
+/* GREEN */
+.menu > a[data-color="green"],
+.menu > button[data-color="green"]{
+  background: var(--tab-green);
+  border-color: var(--tab-green-border);
+}
+.menu > a[data-color="green"]:hover,
+.menu > button[data-color="green"]:hover{
+  background:#d9f0da;
+  border-color:#1b5e20;
+}
+
+/* BLUE */
+.menu > a[data-color="blue"],
+.menu > button[data-color="blue"]{
+  background: var(--tab-blue);
+  border-color: var(--tab-blue-border);
+}
+.menu > a[data-color="blue"]:hover,
+.menu > button[data-color="blue"]:hover{
+  background:#cfe6fb;
+  border-color:#0d47a1;
+}
+
+/* PURPLE */
+.menu > a[data-color="purple"],
+.menu > button[data-color="purple"]{
+  background: var(--tab-purple);
+  border-color: var(--tab-purple-border);
+}
+.menu > a[data-color="purple"]:hover,
+.menu > button[data-color="purple"]:hover{
+  background:#e7cfee;
+  border-color:#4a148c;
+}
+
+/* GOLD */
+.menu > a[data-color="gold"],
+.menu > button[data-color="gold"]{
+  background: var(--tab-gold);
+  border-color: var(--tab-gold-border);
+}
+.menu > a[data-color="gold"]:hover,
+.menu > button[data-color="gold"]:hover{
+  background:#ffefb8;
+  border-color:#8d6e00;
+}
+
+    /* hover tabs colour */
+    .menu > a:hover{
+      background:var(--tabHoverBg);
+      border-color:var(--tabHoverBorder);
+      transform:translateY(-1px);
+    }
+    .menu > a.active{
+      background:rgba(122,31,31,.08);
+      border-color:rgba(122,31,31,.35);
+    }
+
+    .caret{font-size:12px; color:var(--muted)}
+
+    .dropdown{
+      display:none;
+      position:absolute;
+      right:0;
+      top: calc(100% + 6px);
+      width: 320px;
+      max-width: 90vw;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:0 18px 60px rgba(0,0,0,.14);
+      padding:10px;
+    }
+    /* Invisible bridge so moving from tab -> dropdown doesn't break hover */
+    .menu::after{
+      content:"";
+      position:absolute;
+      left:-10px;
+      right:-10px;
+      top:100%;
+      height:12px;
+    }
+    .menu:hover .dropdown{display:block}
+
+    .dropGrid{display:grid; gap:8px}
+    @media (min-width:900px){ .dropGrid.cols-2{grid-template-columns:repeat(2,1fr)} }
+
+    .dropItem{
+      border:1px solid rgba(0,0,0,0.54);
+      border-radius:14px;
+      padding:10px 10px;
+      background:#fff;
+    }
+    .dropItem > .titleRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .dropItem strong{font-size:13px}
+    .dropItem small{display:block; color:var(--muted); font-size:12px; margin-top:2px}
+
+    .subsub{
+      margin-top:8px;
+      margin-left:10px;
+      border-left:2px solid rgba(0,0,0,.08);
+      padding-left:10px;
+      display:grid;
+      gap:6px;
+    }
+    .subsub a{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:7px 8px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:12.5px;
+      background:#fff;
+    }
+    .subsub a:hover{
+      border-color:rgba(122,31,31,.22);
+      background:rgba(122,31,31,.04);
+    }
+
+    /* Search button - distinct colours */
+    .searchBtn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border:1px solid var(--searchBorder);
+      border-radius:999px;
+      background:var(--searchBg);
+      font-size:13px;
+      transition:background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .searchBtn:hover{
+      background:var(--searchHoverBg);
+      border-color:var(--searchHoverBorder);
+      transform:translateY(-1px);
+    }
+
+    /* --- Main layout with left image panel --- */
+    main.wrap{padding-top:18px}
+    .heroLayout{
+      display:grid;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (min-width:900px){
+      .heroLayout{
+        grid-template-columns: 1fr 1.2fr; /* left image | right content */
+      }
+    }
+
+/* Global two-column layout: sticky image on the left, content on the right */
+.pageLayout{
+  display:grid;
+  gap:16px;
+  align-items:start;
+}
+
+@media (min-width: 900px){
+  .pageLayout{
+    grid-template-columns: 1fr 2fr; /* left 1/3, right 2/3 */
+  }
+  .stickyLeft{
+    position: sticky;
+    top: 92px; /* adjust if header height changes */
+    height: calc(100vh - 110px);
+  }
+  .stickyLeft .imagePanel{
+    height: 100%;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 899px){
+  .stickyLeft .imagePanel{
+    min-height: 240px;
+  }
+}
+    .imagePanel{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      min-height:360px;
+      box-shadow:0 14px 40px rgba(0,0,0,.08);
+      background:#fff;
+    }
+    .imagePanel img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 14px 40px rgba(0,0,0,.08);
+    }
+
+    .welcomeTitle{margin:0; font-size:18px}
+    .muted{color:var(--muted)}
+
+    .crumbs{
+      display:flex; gap:8px; flex-wrap:wrap;
+      color:var(--muted); font-size:13px; margin:0 0 12px
+    }
+    .crumbs a{color:var(--accent)}
+    .list{display:grid; gap:10px; margin-top:12px}
+    .item{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+      padding:12px; border:1px solid var(--line); border-radius:14px; background:#fff;
+    }
+    .item strong{display:block}
+    .item small{color:var(--muted)}
+    .poem{
+      white-space:pre-wrap;
+      font-size:16px;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+
+    input[type="search"]{
+      width:min(620px,100%);
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      outline:none;
+      background:#fff;
+    }
+    input[type="search"]:focus{
+      border-color:rgba(122,31,31,.35);
+      box-shadow:0 0 0 4px rgba(122,31,31,.10);
+    }
+
+    footer{color:var(--muted); font-size:12px; padding-top:14px}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap topbar">
+    <div class="brand">
+      <a href="#/" class="brandLink" aria-label="Go to homepage">
+        <div class="logo"></div>
+      </a>
+      <div>
+    <h1><a href="#/" class="brandLink">Tamil Saiva Poetry</a></h1>
+    <p>An Introduction with Translations and Explanations</p>
+      </div>
+    </div>
+
+    <nav class="navRow" id="nav"></nav>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<script>
+/**
+ * CUSTOMIZE: Welcome message shown on the homepage (right side).
+ */
+const WELCOME_MESSAGE = `
+<div class="centerText">திருச்சிற்றம்பலம்</div>
+
+This is the website version of my book Tamil Saiva Poetry. Here you can find poems from Saiva Literature with translations to English and easy to understand explanations. You can use the drop down menus at the top to find your way around. Hope you enjoy!
+
+-- Akshayan Manivannan 
+`.trim();
+
+/**
+ * CUSTOMIZE: Left-side image shown on the homepage.
+ * - Replace this with your own file path (e.g. "images/murugan.jpg")
+ * - or a full URL to an image you own/are allowed to use.
+ */
+const LEFT_IMAGE_SRC = "images/perunthurai.jpg";;
+
+function withStickyLayout(rightHtml, imageSrc){
+  const img = imageSrc || LEFT_IMAGE_SRC;
+
+  return `
+    <div class="pageLayout">
+      <aside class="stickyLeft">
+        <section class="imagePanel" aria-label="Left image">
+          <img src="${escapeHtml(img)}" alt="Decorative image" />
+        </section>
+      </aside>
+
+      <section class="rightPane">
+        ${rightHtml}
+      </section>
+    </div>
+  `;
+}
+/**
+ * NAV STRUCTURE (tabs -> subtabs -> subsubtabs)
+ */
+const NAV = [
+  {
+    label: "Arunagirinathar",
+    slug: "arunagirinathar",
+    color: "red",
+    children: [
+      { label: "Biography", slug: "arunagirinathar-biography" },
+      { label: "Kantar Alangaram", slug: "kantar-alangaram" },
+      { label: "Kantar Anuboothi", slug: "kantar-anuboothi" },
+      { label: "Kantar Anthaathi", slug: "kantar-anthaathi" },
+      { label: "Thiruppugazh", slug: "thiruppugazh" },
+    ]
+  },
+  {
+    label: "Manickavasagar",
+    slug: "manickavasagar",
+    color: "green",
+    children: [
+      { label: "Biography", slug: "manickavaasagar-biography" },
+      {
+        label: "Thiruvaasagam",
+        slug: "thiruvaasagam",
+        children: [
+          { label: "Sivapuranam", slug: "sivapuranam" },
+          { label: "Keerthi Thiruvagaval", slug: "keerthi-thiruvagaval" },
+          { label: "Thiruvandappaguthi", slug: "thiruvandappaguthi" },
+          { label: "Pottri Thiruvagaval", slug: "pottri-thiruvagaval" },
+          { label: "Thiruchchatagam", slug: "thiruchchatagam" },
+          { label: "Neeththal Vinnappam", slug: "neeththal-vinnappam" },
+          { label: "Thiruvempavai and the Songs of Girls", slug: "songs-of-girls" },
+          { label: "Pathigam", slug: "pathigam" },
+        ]
+      },
+    ]
+  },
+  {
+    label: "Thevaram Moovar",
+    slug: "thevaram-moovar",
+    color: "purple",
+    children: [
+      { label: "Sambandar", slug: "sambandar" },
+      { label: "Appar", slug: "appar" },
+      { label: "Sundarar", slug: "sundarar" },
+      { label: "Collection of Thevaram Verses", slug: "collection" },
+      { label: "Chitra Kavi", slug: "chitra-kavi" },
+    ]
+  },
+  {
+    label: "Thirukkovaiyaar - Coming Soon",
+    slug: "thirukkovaiyaar",
+    color: "gold",
+    children: [
+      { label: "Akam Literature", slug:"akam" },
+      {label: "Thirukkovaiyaar", }
+    ]
+  }
+];
+
+/**
+ * CONTENT (English-only)
+ * Add your items here, matching sectionSlug to one of the slugs above.
+ */
+const LIBRARY = [
+  {
+    id: "arun-bio-1",
+    sectionSlug: "arunagirinathar-biography",
+    title: "Arunagirinathar — Biography",
+    image: "images/arunagirinatha.jpg",
+    file: "content/arunagirinathar/arun-biography.html",
+    format: "html"
+  },
+  {
+    id: "kantar-alangaram",
+    sectionSlug: "kantar-alangaram",
+    title: "Kantar Alangaram",
+    image: "images/murugan1.jpg",
+    file: "content/arunagirinathar/kantar-alangaram.html",
+    format: "html"
+  },
+    {
+    id: "kantar-anthaathi",
+    sectionSlug: "kantar-anthaathi",
+    title: "Kantar Anthaathi",
+    image: "images/murugan5.jpeg",
+    file: "content/arunagirinathar/kantar-anthaathi.html",
+    format: "html"
+  },
+    {
+    id: "kantar-anuboothi",
+    sectionSlug: "kantar-anuboothi",
+    title: "Kantar Anuboothi",
+    image: "images/murugan3.jpeg",
+    file: "content/arunagirinathar/kantar-anuboothi.html",
+    format: "html"
+  },
+    {
+    id: "thiruppugazh",
+    sectionSlug: "thiruppugazh",
+    title: "Thiruppugazh",
+    image: "images/murugan4.jpeg",
+    file: "content/arunagirinathar/thiruppugazh.html",
+    format: "html"
+  },
+  {
+    id: "mani-biography",
+    sectionSlug: "manickavaasagar-biography",
+    title: "Biography",
+    image:"images/manickavasagar.jpg",
+    file: "content/maanickavaasagar/maanickam-biography.html",
+    format: "html"
+  },
+  {
+    id: "sivapuranam",
+    sectionSlug: "sivapuranam",
+    title: "Sivapuranam",
+    image:"images/siva1.jpeg",
+    file: "content/maanickavaasagar/sivapuranam.html",
+    format: "html"
+  },
+  {
+    id: "keerthi-thiruvagaval",
+    sectionSlug: "keerthi-thiruvagaval",
+    title: "Keerthi Thiruvagaval",
+    image:"images/siva9.jpeg",
+    file: "content/maanickavaasagar/keerthi-thiruvagaval.html",
+    format: "html"
+  },
+  {
+    id: "thiruvandappaguthi",
+    sectionSlug: "thiruvandappaguthi",
+    title: "Thiruvandappaguthi",
+    image:"images/siva3.jpeg",
+    file: "content/maanickavaasagar/thiruvandappaguthi.html",
+    format: "html"
+  },
+  {
+    id: "pottri-thiruvagaval",
+    sectionSlug: "pottri-thiruvagaval",
+    title: "Pottri Thiruvagaval",
+    image:"images/siva4.jpeg",
+    file: "content/maanickavaasagar/pottri-thiruvagaval.html",
+    format: "html"
+  },
+  {
+    id: "thiruchchatagam",
+    sectionSlug: "thiruchchatagam",
+    title: "Thiruchchatagam",
+    image:"images/siva5.jpeg",
+    file: "content/maanickavaasagar/thiruchchatagam.html",
+    format: "html"
+  },
+  {
+    id: "neeththal-vinnappam",
+    sectionSlug: "neeththal-vinnappam",
+    title: "Neeththal Vinnappam",
+    image:"images/siva6.jpeg",
+    file: "content/maanickavaasagar/neeththal-vinnappam.html",
+    format: "html"
+  },
+  {
+    id: "songs-of-girls",
+    sectionSlug: "songs-of-girls",
+    title: "Thiruvempaavai and the Songs of Girls",
+    image:"images/thiruvempavai.png",
+    file: "content/maanickavaasagar/thiruvempavai.html",
+    format: "html"
+  },
+  {
+    id: "pathigam",
+    sectionSlug: "pathigam",
+    title: "Pathigams",
+    image:"images/siva7.jpeg",
+    file: "content/maanickavaasagar/pathigam.html",
+    format: "html"
+  },
+  {
+    id: "sambandar",
+    sectionSlug: "sambandar",
+    title: "Sambandar",
+    image:"images/sambandar.jpg",
+    file: "content/thevaram-moovar/sambandar.html",
+    format: "html"
+  },
+  {
+    id: "appar",
+    sectionSlug: "appar",
+    title: "Appar",
+    image:"images/appar.png",
+    file: "content/thevaram-moovar/appar.html",
+    format: "html"
+  },
+  {
+    id: "sundarar",
+    sectionSlug: "sundarar",
+    title: "Sundarar",
+    image:"images/sundarar.jpg",
+    file: "content/thevaram-moovar/sundarar.html",
+    format: "html"
+  },
+  {
+    id: "collection",
+    sectionSlug: "collection",
+    title: "Collection of Thevaram Verses",
+    image:"images/siva2.jpeg",
+    file: "content/thevaram-moovar/collection.html",
+    format: "html"
+  },
+  {
+    id: "chitra-kavi",
+    sectionSlug: "chitra-kavi",
+    title: "Chitra Kavi",
+    image:"images/chitra-kavi.png",
+    file: "content/thevaram-moovar/chitra-kavi.html",
+    format: "html"
+  }
+];
+
+// ---------- Helpers ----------
+function escapeHtml(s){
+  return String(s ?? "").replace(/[&<>"']/g, m => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[m]));
+}
+
+const CONTENT_CACHE = new Map();
+
+async function fetchContent(item){
+  if(!item.file) return item.text || "";
+
+  if(CONTENT_CACHE.has(item.file)){
+    return CONTENT_CACHE.get(item.file);
+  }
+
+  const res = await fetch(item.file, { cache: "no-store" });
+  if(!res.ok){
+    throw new Error(`Couldn’t load ${item.file} (HTTP ${res.status})`);
+  }
+
+  const txt = await res.text();
+  CONTENT_CACHE.set(item.file, txt);
+  return txt;
+}
+
+function flattenSections(){
+  const out = [];
+  function walk(node, pathLabels){
+    const nextPath = [...pathLabels, node.label];
+    if(node.slug && node.slug !== "search" && !node.standalone){
+      out.push({ slug: node.slug, labelPath: nextPath });
+    }
+    if(node.children) node.children.forEach(ch => walk(ch, nextPath));
+  }
+  NAV.forEach(n => { if(!n.standalone) walk(n, []); });
+  return out;
+}
+const SECTION_INDEX = flattenSections();
+
+function breadcrumbForSection(slug){
+  const hit = SECTION_INDEX.find(x => x.slug === slug);
+  return hit ? hit.labelPath : [slug];
+}
+
+// ---------- Nav render ----------
+function renderNav(){
+  const nav = document.getElementById("nav");
+  const hash = location.hash || "#/";
+
+  const menuHtml = NAV.map(top => {
+    if(top.standalone){
+      const active = hash.startsWith("#/search");
+      return `<a class="searchBtn ${active ? "active":""}" href="#/search">Search</a>`;
+    }
+
+    const active = hash.includes(`/section/${top.slug}`) || (hash.includes("/section/") && hash.includes(top.slug));
+    return `
+      <div class="menu">
+        <button type="button" class="${active ? "active":""}" data-color="${top.color}" aria-haspopup="true">
+          ${escapeHtml(top.label)} <span class="caret">▾</span>
+        </button> 
+
+        <div class="dropdown" role="menu">
+          ${renderDropdown(top)}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  nav.innerHTML = menuHtml;
+}
+
+function renderDropdown(top){
+  const children = top.children || [];
+  const cols2 = children.length > 5 ? "cols-2" : "";
+  return `
+    <div class="dropGrid ${cols2}">
+      ${children.map(ch => {
+        const hasSub = Array.isArray(ch.children) && ch.children.length;
+        return `
+          <div class="dropItem">
+            <div class="titleRow">
+              <a href="#/section/${ch.slug}">
+                <strong>${escapeHtml(ch.label)}</strong>
+              </a>
+              <span class="muted">${hasSub ? "▸" : ""}</span>
+            </div>
+
+            ${hasSub ? `
+              <div class="subsub">
+                ${ch.children.map(ss => `
+                  <a href="#/section/${ss.slug}">
+                    <span>${escapeHtml(ss.label)}</span>
+                    <span class="muted">›</span>
+                  </a>
+                `).join("")}
+              </div>
+            ` : ``}
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+// ---------- Router ----------
+function appSet(html){
+  document.getElementById("app").innerHTML = html;
+  renderNav();
+}
+
+function route(){
+  const hash = location.hash || "#/";
+  const parts = hash.replace(/^#\//,"").split("/").filter(Boolean);
+
+  if(parts.length === 0) return renderHome();
+  if(parts[0] === "section" && parts[1]) return renderSection(parts[1]);
+  if(parts[0] === "item" && parts[1]) return renderItem(parts[1]);
+  if(parts[0] === "search") return renderSearch();
+
+  return renderNotFound();
+}
+
+function renderHome(){
+  appSet(`
+    <div class="heroLayout">
+      <section class="imagePanel" aria-label="Left image">
+        <img src="${escapeHtml(LEFT_IMAGE_SRC)}" alt="Decorative image" />
+      </section>
+
+      <section class="card" aria-label="Welcome panel">
+        <h2 class="welcomeTitle">Welcome</h2>
+        <p class="muted" style="margin:6px 0 0">
+          ${escapeHtml("Use the top tabs to browse.")}
+        </p>
+        <div style="height:12px"></div>
+        <div class="poem" style="margin:0">${WELCOME_MESSAGE}</div>
+
+        <div style="height:12px"></div>
+
+        <footer style="margin-top:14px">
+          <div>© ${new Date().getFullYear()} Tamil Saiva Poetry</div>
+        </footer>
+      </section>
+    </div>
+  `);
+}
+
+function renderSection(slug){
+  const crumbs = breadcrumbForSection(slug);
+  const items = LIBRARY.filter(x => x.sectionSlug === slug);
+  // If this section has exactly one item, open it immediately
+  if (items.length === 1) {
+    location.hash = `#/item/${items[0].id}`;
+    return;
+  }
+
+  appSet(`
+    <div class="crumbs">
+      <a href="#/">Home</a> <span>›</span>
+      <span>${escapeHtml(crumbs.join(" › "))}</span>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0">${escapeHtml(crumbs[crumbs.length-1])}</h2>
+      <p class="muted" style="margin:6px 0 0">${items.length} item(s)</p>
+
+      <div class="list">
+        ${items.length ? items.map(p => `
+          <a class="item" href="#/item/${p.id}">
+            <div>
+              <strong>${escapeHtml(p.title)}</strong>
+            </div>
+            <span class="muted">›</span>
+          </a>
+        `).join("") : `
+          <div class="muted">
+            No items added yet for this section.<br/>
+            Add entries in <code>LIBRARY[]</code> with <code>sectionSlug: "${escapeHtml(slug)}"</code>.
+          </div>
+        `}
+      </div>
+    </div>
+  `);
+}
+
+async function renderItem(id){
+  const item = LIBRARY.find(x => x.id === id);
+  if(!item) return renderNotFound();
+
+  const crumbs = breadcrumbForSection(item.sectionSlug);
+
+  // Quick loading state
+  appSet(withStickyLayout(`
+    <div class="card"><div class="muted">Loading…</div></div>
+  `, item.image));
+
+  try{
+    const raw = await fetchContent(item);
+
+    // If format is txt, escape it so it displays as text
+    // If format is html (or unspecified), insert as HTML snippet
+    const bodyHtml = (item.format === "txt")
+      ? escapeHtml(raw)
+      : raw;
+
+    appSet(withStickyLayout(`
+      <div class="crumbs">
+        <a href="#/">Home</a> <span>›</span>
+        <a href="#/section/${escapeHtml(item.sectionSlug)}">${escapeHtml(crumbs[crumbs.length-1])}</a>
+        <span>›</span>
+        <span>${escapeHtml(item.title)}</span>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0">${escapeHtml(item.title)}</h2>
+        <p class="muted" style="margin:6px 0 0">${escapeHtml(item.author || "")}</p>
+
+        <div style="height:12px"></div>
+        <div class="poem">${bodyHtml}</div>
+      </div>
+    `, item.image));
+  } catch(err){
+    appSet(withStickyLayout(`
+      <div class="card">
+        <h2 style="margin:0">${escapeHtml(item.title)}</h2>
+        <p class="error">Error loading content: ${escapeHtml(err.message)}</p>
+        <p class="muted">Make sure the file path exists and you’re running a local server.</p>
+        <a class="btn" href="#/section/${escapeHtml(item.sectionSlug)}"
+           style="display:inline-flex; padding:8px 10px; border:1px solid var(--line); border-radius:14px; background:#fff;">
+          Back to section
+        </a>
+      </div>
+    `, item.image));
+  }
+}
+
+function renderSearch(){
+  appSet(`
+    <div class="card">
+      <h2 style="margin:0">Search</h2>
+      <p class="muted" style="margin:6px 0 0">Search titles, authors, or full text.</p>
+
+      <div style="height:12px"></div>
+
+      <input id="q" type="search" placeholder="Type to search…" autocomplete="off" />
+      <div class="list" id="results" style="margin-top:14px"></div>
+    </div>
+  `);
+
+  const q = document.getElementById("q");
+  const results = document.getElementById("results");
+
+  function run(){
+    const term = (q.value || "").trim().toLowerCase();
+    if(!term){
+      results.innerHTML = `<div class="muted">Start typing to see results.</div>`;
+      return;
+    }
+    const hits = LIBRARY.filter(p => {
+      const hay = [p.title, p.author, p.text].filter(Boolean).join(" ").toLowerCase();
+      return hay.includes(term);
+    });
+
+    results.innerHTML = hits.length ? hits.map(p => {
+      const crumbs = breadcrumbForSection(p.sectionSlug);
+      const sectionName = crumbs[crumbs.length-1];
+      return `
+        <a class="item" href="#/item/${escapeHtml(p.id)}">
+          <div>
+            <strong>${escapeHtml(p.title)}</strong>
+            <small>${escapeHtml(sectionName)} • ${escapeHtml(p.author || "")}</small>
+          </div>
+          <span class="muted">›</span>
+        </a>
+      `;
+    }).join("") : `<div class="muted">No matches.</div>`;
+  }
+
+  q.addEventListener("input", run);
+  run();
+  q.focus();
+}
+
+function renderNotFound(){
+  appSet(`
+    <div class="card">
+      <h2>Page not found</h2>
+      <p class="muted">That link doesn’t exist.</p>
+      <div style="height:10px"></div>
+      <a class="searchBtn" href="#/">Go Home</a>
+    </div>
+  `);
+}
+
+// Init
+window.addEventListener("hashchange", route);
+renderNav();
+route();
+</script>
+</body>
+</html>
